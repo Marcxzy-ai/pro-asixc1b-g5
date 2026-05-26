@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovate Tech - Portal Multimedia</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --success: #22c55e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vi;
+        }
+
+        header {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        .status-badge {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .welcome-section h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .welcome-section p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #334155;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: #475569;
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+
+        /* Estilos de los reproductores nativos */
+        audio, video {
+            width: 100%;
+            border-radius: 8px;
+            background-color: #0f172a;
+        }
+
+        video {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border: 1px solid #334155;
+        }
+
+        /* Botón de Jitsi */
+        .btn-jitsi {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #0f172a;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            margin-top: auto;
+        }
+
+        .btn-jitsi:hover {
+            background-color: var(--accent-hover);
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Innovate<span>Tech</span></h1>
+        <div class="status-badge">
+            <span class="status-dot"></span> Servidor Multimedia Activo
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Plataforma Multimedia Interna</h2>
+            <p>Bienvenido al portal centralizado de comunicación y formación de Innovate Tech. Accede a los servicios de audio, vídeo corporativo y salas de reunión.</p>
+        </section>
+
+        <section class="grid-container">
+            <div class="card">
+                <div class="card-icon">📻</div>
+                <h3>Radio Interna y Podcast</h3>
+                <p>Streaming de audio digital en directo para comunicados generales de la directiva y canales de voz internos.</p>
+                <audio controls preload="none">
+                    <source src="http://3.230.189.112:8000/radio_interna.ogg" type="audio/ogg">
+                    <source src="http://3.230.189.112:8000/radio_interna.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el formato de audio digital.
+                </audio>
+                
+                <div style="margin-top: 20px; text-align: center; border-top: 1px solid #334155; padding-top: 15px;">
+                    <a href="http://3.230.189.112:8000/" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s ease;">
+                        ⚙️ Ver Estado del Servidor (Icecast2)
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📺</div>
+                <h3>Vídeo de Formación</h3>
+                <p>Cursos de formación continua y cápsulas técnicas en streaming bajo demanda (VoD) servidas desde nuestro clúster.</p>
+                <video controls>
+                    <source src="/videos/video_corporatiu.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de vídeo.
+                </video>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Salas de Videoconferencia</h3>
+                <p>Plataforma de reuniones unificadas en tiempo real utilizando el protocolo encriptado seguro de baja latencia WebRTC.</p>
+                <a href="https://ec2-3-230-189-112.compute-1.amazonaws.com" target="_blank" class="btn-jitsi">Unirse a la Reunión</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Innovate Tech - Área de Infraestructura y Sistemas ASIX
+    </footer>
+
+</body>
+</html>
