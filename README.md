@@ -2,11 +2,14 @@
 
 ## 🚀 Acceso a los Servicios
 * **Portal en AWS (Servicios Reales):** [http://3.230.189.112](http://3.230.189.112)
+* **Portal en Github:** [https://marcxzy-ai.github.io/pro-asixc1b-g5/web/]
 * **Servidor de Audio (Icecast):** [http://3.230.189.112:8000](http://3.230.189.112:8000)
 
 ## 📁 Contenido del Repositorio
 * **/documentacion**: Contiene el PDF con la memoria técnica (CPD, Redes y Bases de Datos).
 * **/web**: Código fuente del portal multimedia.
+* **/video**: Video demostrado que todo funciona correctamente.
+
 
 ## 🛠️ Tecnologías utilizadas
 - **Infraestructura:** AWS EC2 (Ubuntu).
