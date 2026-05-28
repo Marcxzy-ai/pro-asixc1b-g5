@@ -114,6 +114,7 @@
             padding: 30px;
             display: flex;
             flex-direction: column;
+            justify-content: flex-start !important;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
@@ -222,7 +223,7 @@
             font-weight: 700;
             font-size: 16px;
             transition: all 0.2s ease;
-            margin-top: auto;
+            margin-top: 10px !important;
             box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.3);
         }
 
@@ -241,6 +242,84 @@
             border-top: 1px solid #334155;
             background-color: rgba(30, 41, 59, 0.5);
         }
+
+        /* Estilo para la sección de monitorización */
+        #monitoring {
+            margin-top: 50px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        #monitoring h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 28px;
+        }
+
+        #monitoring iframe {
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid #0f172a;
+        }
+
+        /* Efecto de Pulso para el 'Live' */
+        .live-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(34, 197, 94, 0.7); }
+            100% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* Grupo de Avatares */
+        .participant-group {
+            display: flex;
+            margin: 20px 0;
+            padding-left: 10px;
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid var(--card-bg);
+            margin-left: -10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .avatar.a1 { background: linear-gradient(135deg, #38bdf8, #0ea5e9); }
+        .avatar.a2 { background: linear-gradient(135deg, #818cf8, #6366f1); }
+        .avatar.a3 { background: linear-gradient(135deg, #fb7185, #e11d48); }
+        .avatar.more { background: #334155; color: var(--text-muted); }
+
     </style>
 </head>
 <body>
@@ -260,51 +339,51 @@
 
         <section class="grid-container">
             <div class="card">
-		    <div class="card-icon">📻</div>
-		    <h3>Centro de Audio Corporativo</h3>
-		    <p>Distribución de audio interna: emisiones en directo (Streaming) y catálogo de podcasts (Sota demanda).</p>
+                    <div class="card-icon">📻</div>
+                    <h3>Centro de Audio Corporativo</h3>
+                    <p>Distribución de audio interna: emisiones en directo (Streaming) y catálogo de podcasts (Sota demanda).</p>
 
                     <details open>
-			    <summary>🔴 Radio Interna (Streaming en Directo)</summary>
-			    <div class="details-content">
-			        <audio id="live-audio" controls preload="none">
-			            <source id="live-source" src="http://3.230.189.112:8000/radio_directo" type="audio/mpeg">
-			            Tu navegador no soporta streaming de audio.
-			        </audio>
-			        <p id="live-status" style="font-size: 12px; color: var(--success); margin-top: 10px; font-weight: bold;">
-			            📡 Transmisión EN DIRECTO activa vía Icecast2
-			        </p>
-			    </div>
-		   </details>
-		    <details>
-		        <summary>🎙️ Catálogo: Podcast Bienvenida (Sota Demanda)</summary>
-		        <div class="details-content">
-		            <audio controls>
-		                <source src="audios/podcast_bienvenida.mp3" type="audio/mpeg">
-		            </audio>
-		        </div>
-		    </details>
+                            <summary>🔴 Radio Interna (Streaming en Directo)</summary>
+                            <div class="details-content">
+                                <audio id="live-audio" controls preload="none">
+                                    <source id="live-source" src="http://3.230.189.112:8000/radio_directo" type="audio/mpeg">
+                                    Tu navegador no soporta streaming de audio.
+                                </audio>
+                                <p id="live-status" style="font-size: 12px; color: var(--success); margin-top: 10px; font-weight: bold;">
+                                    📡 Transmisión EN DIRECTO activa vía Icecast2
+                                </p>
+                            </div>
+                   </details>
+                    <details>
+                        <summary>🎙️ Catálogo: Podcast Bienvenida (Sota Demanda)</summary>
+                        <div class="details-content">
+                            <audio controls>
+                                <source src="audios/podcast_bienvenida.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </details>
 
-		    <details>
-		        <summary>🎙️ Catálogo: Mensaje del CEO (Sota Demanda)</summary>
-		        <div class="details-content">
-		            <audio controls>
-		                <source src="audios/mensaje_ceo.mp3" type="audio/mpeg">
-		            </audio>
-		        </div>
-		    </details>
+                    <details>
+                        <summary>🎙️ Catálogo: Mensaje del CEO (Sota Demanda)</summary>
+                        <div class="details-content">
+                            <audio controls>
+                                <source src="audios/mensaje_ceo.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </details>
 
-		    <div style="margin-top: 20px; text-align: center; border-top: 1px dashed #334155; padding-top: 15px;">
-		        <a href="http://3.230.189.112:8000/" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 5px;">
-		            <span>⚙️</span> Panel de Control del Streaming (Icecast2)
-		        </a>
-		    </div>
-		</div>
+                    <div style="margin-top: 20px; text-align: center; border-top: 1px dashed #334155; padding-top: 15px;">
+                        <a href="http://3.230.189.112:8000/" target="_blank" style="color: var(--text-muted); text-decoration: none; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 5px;">
+                            <span>⚙️</span> Panel de Control del Streaming (Icecast2)
+                        </a>
+                    </div>
+                </div>
             <div class="card">
                 <div class="card-icon">📺</div>
                 <h3>Videoteca de Formación</h3>
                 <p>Cursos de formación continua y cápsulas técnicas en streaming alojadas en nuestro servidor.</p>
-                
+
                 <details>
                     <summary>▶️ Módulo 1: Presentación Corporativa</summary>
                     <div class="details-content">
@@ -333,14 +412,39 @@
                     </div>
                 </details>
             </div>
-            
+
             <div class="card">
                 <div class="card-icon">👥</div>
+
+                <div class="live-status">
+                    <span class="pulse"></span> EN VIVO
+                </div>
+
                 <h3>Salas de Videoconferencia</h3>
-                <p>Plataforma de reuniones unificadas en tiempo real utilizando el protocolo encriptado seguro de baja latencia WebRTC.</p>
+                <p>Plataforma de reuniones unificadas en tiempo real utilizando el protocolo WebRTC.</p>
+
+                <div class="participant-group">
+                    <div class="avatar a1">JD</div>
+                    <div class="avatar a2">MS</div>
+                    <div class="avatar a3">RT</div>
+                    <div class="avatar more">+5</div>
+                </div>
+
                 <a href="https://ec2-3-230-189-112.compute-1.amazonaws.com" target="_blank" class="btn-jitsi">Unirse a la Reunión</a>
             </div>
+
         </section>
+        <section id="monitoring">
+            <h2>Panel de Monitorización en Tiempo Real (CPD Innovate Tech)</h2>
+            <p>Estado de salud de los servidores centralizado mediante Netdata.</p>
+
+            <iframe src="http://54.175.41.208:19999"
+                    width="100%"
+                    height="600"
+                    style="border:none;">
+            </iframe>
+        </section>
+
     </main>
 
     <footer>
@@ -360,7 +464,7 @@
                 liveSource.src = "audios/podcast_bienvenida.mp3";
                 liveSource.type = "audio/mpeg";
                 liveAudio.load(); // Recargamos el reproductor
-                
+
                 // Avisamos visualmente pero el audio funcionará
                 liveStatus.innerHTML = "⚠️ <i>Aviso: Icecast no disponible. Reproduciendo señal de emergencia local.</i>";
                 liveStatus.style.color = "var(--warning)";
